@@ -1,0 +1,85 @@
+{
+  "data": {
+    "nodeHomepages": {
+      "__typename": "NodeHomepageConnection",
+      "nodes": [
+        {
+          "__typename": "NodeHomepage",
+          "id": "homepage",
+          "title": "The Pragmatic Dev - Blog",
+          "path": "/homepage",
+          "heroTitle": "The Pragmatic Dev",
+          "heroSubtitle": "Practical insights for modern developers",
+          "heroDescription": {
+            "processed": "<p>Deep dives into software engineering, system design, and the developer lifestyle. No fluff, no hype -- just actionable content from years in the trenches. Free and premium content for developers who want to level up.</p>",
+            "summary": "Deep dives into software engineering, system design, and the developer lifestyle. No fluff, no hype -- just actionable content from years in the trenches. Free and premium content for developers who w"
+          },
+          "heroImage": {
+            "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+            "alt": "Laptop on a desk with coffee and notebook",
+            "width": 800,
+            "height": 533,
+            "variations": [
+              {
+                "name": "LARGE",
+                "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+                "width": 800,
+                "height": 533
+              },
+              {
+                "name": "MEDIUM",
+                "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=480&q=80",
+                "width": 480,
+                "height": 320
+              },
+              {
+                "name": "THUMBNAIL",
+                "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=200&q=80",
+                "width": 200,
+                "height": 133
+              }
+            ]
+          },
+          "statsItems": [
+            {
+              "__typename": "ParagraphStatItem",
+              "id": "stat-posts",
+              "title": "",
+              "number": "120+",
+              "label": "Posts Published"
+            },
+            {
+              "__typename": "ParagraphStatItem",
+              "id": "stat-subscribers",
+              "title": "",
+              "number": "4,500",
+              "label": "Subscribers"
+            },
+            {
+              "__typename": "ParagraphStatItem",
+              "id": "stat-reads",
+              "title": "",
+              "number": "2M+",
+              "label": "Total Reads"
+            },
+            {
+              "__typename": "ParagraphStatItem",
+              "id": "stat-years",
+              "title": "",
+              "number": "5",
+              "label": "Years Running"
+            }
+          ],
+          "featuredItemsTitle": "Featured Posts",
+          "ctaTitle": "Subscribe for Premium Content",
+          "ctaDescription": {
+            "processed": "<p>Get access to in-depth tutorials, system design case studies, and members-only posts. Free subscribers get weekly highlights. Premium members get everything, plus early access and code samples.</p>",
+            "summary": "Get access to in-depth tutorials, system design case studies, and members-only posts. Free subscribers get weekly highlights. Premium members get everything, plus early access and code samples."
+          },
+          "ctaPrimary": "Subscribe - $9/month",
+          "ctaSecondary": "Free Newsletter"
+        }
+      ]
+    }
+  }
+}
