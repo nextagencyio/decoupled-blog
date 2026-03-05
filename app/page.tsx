@@ -152,7 +152,7 @@ export default async function HomePage() {
               </Link>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {otherPosts.map((post) => (
+              {otherPosts.slice(0, 3).map((post) => (
                 <PostCard key={post.id} post={post} />
               ))}
             </div>
