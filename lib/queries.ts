@@ -124,14 +124,17 @@ export function transformPost(node: any): import('./types').Post | null {
     publishedAt: node.created?.time || new Date().toISOString(),
     readTime: node.readTime || '5 min read',
     featured: node.featured ?? false,
-    image: node.image ? {
-      url: node.image.url,
-      alt: node.image.alt || node.title,
-      width: node.image.width || 1200,
-      height: node.image.height || 630,
+    subscriptionTier: node.subscriptionTier || 'free',
+    tags: node.tags || [],
+    image: node.image || node.postImage ? {
+      url: (node.image || node.postImage).url,
+      alt: (node.image || node.postImage).alt || node.title,
+      width: (node.image || node.postImage).width || 1200,
+      height: (node.image || node.postImage).height || 630,
     } : undefined,
     author: {
       name: node.authorName || 'Decoupled Drupal Team',
+      photo: node.authorPhoto?.url || node.authorAvatar?.url,
       avatar: node.authorAvatar ? {
         url: node.authorAvatar.url,
         alt: node.authorAvatar.alt || node.authorName,

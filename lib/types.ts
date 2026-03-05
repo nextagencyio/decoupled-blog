@@ -23,6 +23,8 @@ export interface Post {
   publishedAt: string
   readTime: string
   featured: boolean
+  subscriptionTier?: 'free' | 'premium'
+  tags?: Array<{ id: string; name: string }>
   image?: {
     url: string
     alt: string
@@ -32,6 +34,7 @@ export interface Post {
   author: {
     name: string
     bio?: string
+    photo?: string
     avatar?: {
       url: string
       alt: string

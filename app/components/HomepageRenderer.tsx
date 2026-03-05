@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import Header from './Header'
+import { Footer } from './Footer'
 import HeroSection from './HeroSection'
 import StatsSection from './StatsSection'
 import CTASection from './CTASection'
@@ -13,22 +13,12 @@ interface HomepageRendererProps {
 
 export default function HomepageRenderer({ homepageContent }: HomepageRendererProps) {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-slate-950">
       <Header />
       <ErrorBoundary><HeroSection homepageContent={homepageContent} /></ErrorBoundary>
       <ErrorBoundary><StatsSection homepageContent={homepageContent} /></ErrorBoundary>
       <ErrorBoundary><CTASection homepageContent={homepageContent} /></ErrorBoundary>
-
-      <footer className="bg-white border-t border-primary-200 py-10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-primary-500">
-          <p>&copy; {new Date().getFullYear()} Decoupled Drupal Blog. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/posts" className="hover:text-primary-900 transition-colors">About</Link>
-            <Link href="/posts" className="hover:text-primary-900 transition-colors">Services</Link>
-            <Link href="/contact" className="hover:text-primary-900 transition-colors">Contact</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
