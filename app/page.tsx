@@ -71,21 +71,33 @@ export default async function HomePage() {
         {/* Hero section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Premium Insights,{' '}
-            <span className="gradient-text">Delivered</span>
+            Engineering Field Notes,{' '}
+            <span className="gradient-text">Weekly</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-            Subscribe for exclusive access to in-depth analysis, expert commentary,
-            and insights you won&apos;t find anywhere else.
+            Practical essays on systems, leadership, and product engineering from teams shipping real software.
           </p>
           <Link
             href="/posts"
             className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
           >
             <Sparkles className="h-5 w-5" />
-            Start Your Subscription
+            Explore Posts
           </Link>
         </div>
+
+        <section className="mb-12 grid md:grid-cols-3 gap-4">
+          {[
+            { title: 'System Design', text: 'Architecture tradeoffs, reliability patterns, and scaling stories.' },
+            { title: 'Team Execution', text: 'How effective product and engineering teams actually ship.' },
+            { title: 'Career Craft', text: 'Staff-level communication, influence, and long-term growth.' },
+          ].map((item) => (
+            <div key={item.title} className="bg-gray-800/40 border border-gray-700 rounded-xl p-5">
+              <h3 className="text-white font-semibold mb-2">{item.title}</h3>
+              <p className="text-gray-400 text-sm">{item.text}</p>
+            </div>
+          ))}
+        </section>
 
         {error && (
           <div className="mb-8 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
