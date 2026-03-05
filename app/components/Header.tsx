@@ -18,7 +18,7 @@ export default function Header() {
   const [bannerHeight, setBannerHeight] = useState(0)
 
   useEffect(() => {
-    const banner = document.querySelector('[class*="bg-amber-500"]') as HTMLElement | null
+    const banner = document.querySelector('[data-demo-banner]') as HTMLElement | null
     if (banner) {
       const update = () => setBannerHeight(banner.offsetHeight)
       update()
