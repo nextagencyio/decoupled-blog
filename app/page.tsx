@@ -70,31 +70,34 @@ export default async function HomePage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-12">
         {/* Hero section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Engineering Field Notes,{' '}
-            <span className="gradient-text">Weekly</span>
+          <div className="inline-flex items-center gap-2 bg-primary-600/20 border border-primary-500/30 text-primary-300 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+            <Sparkles className="h-4 w-4" />
+            Headless Drupal & Decoupled CMS
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Build Modern Frontends,{' '}
+            <span className="gradient-text">Powered by Drupal</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-            Practical essays on systems, leadership, and product engineering from teams shipping real software.
+            Practical guides for decoupling Drupal -- from API design and content modeling to Next.js integration and production deployment.
           </p>
           <Link
             href="/posts"
-            className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-8 py-3.5 rounded-lg font-semibold transition-colors shadow-lg shadow-primary-600/25"
           >
-            <Sparkles className="h-5 w-5" />
-            Explore Posts
+            Browse All Guides
           </Link>
         </div>
 
-        <section className="mb-12 grid md:grid-cols-3 gap-4">
+        <section className="mb-14 grid md:grid-cols-3 gap-5">
           {[
-            { title: 'System Design', text: 'Architecture tradeoffs, reliability patterns, and scaling stories.' },
-            { title: 'Team Execution', text: 'How effective product and engineering teams actually ship.' },
-            { title: 'Career Craft', text: 'Staff-level communication, influence, and long-term growth.' },
+            { title: 'Headless Architecture', text: 'API-first patterns, GraphQL schemas, and decoupled deployment strategies.' },
+            { title: 'Frontend Integration', text: 'Connect Drupal to Next.js, Nuxt, or Astro with practical, working examples.' },
+            { title: 'Content Modeling', text: 'Structure content types, paragraphs, and taxonomies for multi-channel delivery.' },
           ].map((item) => (
-            <div key={item.title} className="bg-gray-800/40 border border-gray-700 rounded-xl p-5">
+            <div key={item.title} className="bg-gray-800/50 border border-gray-700/60 rounded-xl p-6 hover:border-primary-500/30 transition-colors">
               <h3 className="text-white font-semibold mb-2">{item.title}</h3>
-              <p className="text-gray-400 text-sm">{item.text}</p>
+              <p className="text-gray-400 text-sm leading-relaxed">{item.text}</p>
             </div>
           ))}
         </section>

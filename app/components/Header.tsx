@@ -7,8 +7,8 @@ import clsx from 'clsx'
 import { Menu, X } from 'lucide-react'
 
 const navigationItems = [
-  { name: 'Work', href: '/posts' },
-  { name: 'Services', href: '/posts' },
+  { name: 'Guides', href: '/posts' },
+  { name: 'Tutorials', href: '/posts' },
   { name: 'About', href: '/posts' },
 ]
 
@@ -30,7 +30,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <Link href="/" className="font-display text-lg font-bold tracking-tight text-primary-900 hover:text-accent-500 transition-colors duration-200">Studio Desk</Link>
+          <Link href="/" className="font-display text-lg font-bold tracking-tight text-primary-900 hover:text-accent-500 transition-colors duration-200">Decoupled Drupal</Link>
           <nav className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
               <Link key={item.name} href={item.href} className={clsx('text-sm transition-colors duration-200', activeTab === item.name ? 'text-accent-500' : 'text-primary-500 hover:text-primary-900')}>

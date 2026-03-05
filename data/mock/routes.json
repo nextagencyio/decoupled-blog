@@ -6,35 +6,35 @@
         "entity": {
           "__typename": "NodeHomepage",
           "id": "homepage",
-          "title": "The Pragmatic Dev - Blog",
+          "title": "Decoupled Drupal Blog",
           "path": "/homepage",
-          "heroTitle": "The Pragmatic Dev",
-          "heroSubtitle": "Practical insights for modern developers",
+          "heroTitle": "Decoupled Drupal",
+          "heroSubtitle": "Practical guides for building headless CMS architectures with Drupal",
           "heroDescription": {
-            "processed": "<p>Deep dives into software engineering, system design, and the developer lifestyle. No fluff, no hype -- just actionable content from years in the trenches. Free and premium content for developers who want to level up.</p>",
-            "summary": "Deep dives into software engineering, system design, and the developer lifestyle. No fluff, no hype -- just actionable content from years in the trenches. Free and premium content for developers who w"
+            "processed": "<p>Deep dives into headless Drupal, decoupled CMS architecture, and modern frontend integration. Practical tutorials and real-world strategies for teams building with Drupal's API-first approach.</p>",
+            "summary": "Deep dives into headless Drupal, decoupled CMS architecture, and modern frontend integration."
           },
           "heroImage": {
-            "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
-            "alt": "Laptop on a desk with coffee and notebook",
+            "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+            "alt": "Modern content management dashboard",
             "width": 800,
             "height": 533,
             "variations": [
               {
                 "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+                "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
                 "width": 800,
                 "height": 533
               },
               {
                 "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=480&q=80",
+                "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=480&q=80",
                 "width": 480,
                 "height": 320
               },
               {
                 "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=200&q=80",
+                "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&q=80",
                 "width": 200,
                 "height": 133
               }
@@ -45,36 +45,36 @@
               "__typename": "ParagraphStatItem",
               "id": "stat-posts",
               "title": "",
-              "number": "120+",
-              "label": "Posts Published"
+              "number": "80+",
+              "label": "Tutorials Published"
             },
             {
               "__typename": "ParagraphStatItem",
               "id": "stat-subscribers",
               "title": "",
-              "number": "4,500",
+              "number": "3,200",
               "label": "Subscribers"
             },
             {
               "__typename": "ParagraphStatItem",
               "id": "stat-reads",
               "title": "",
-              "number": "2M+",
+              "number": "500K+",
               "label": "Total Reads"
             },
             {
               "__typename": "ParagraphStatItem",
               "id": "stat-years",
               "title": "",
-              "number": "5",
+              "number": "3",
               "label": "Years Running"
             }
           ],
-          "featuredItemsTitle": "Featured Posts",
-          "ctaTitle": "Subscribe for Premium Content",
+          "featuredItemsTitle": "Featured Guides",
+          "ctaTitle": "Subscribe for Premium Tutorials",
           "ctaDescription": {
-            "processed": "<p>Get access to in-depth tutorials, system design case studies, and members-only posts. Free subscribers get weekly highlights. Premium members get everything, plus early access and code samples.</p>",
-            "summary": "Get access to in-depth tutorials, system design case studies, and members-only posts. Free subscribers get weekly highlights. Premium members get everything, plus early access and code samples."
+            "processed": "<p>Get access to in-depth Drupal decoupling tutorials, architecture deep dives, and members-only implementation guides.</p>",
+            "summary": "Get access to in-depth Drupal decoupling tutorials, architecture deep dives, and members-only implementation guides."
           },
           "ctaPrimary": "Subscribe - $9/month",
           "ctaSecondary": "Free Newsletter"
@@ -82,440 +82,177 @@
       }
     }
   },
-  "/posts/database-indexing-deep-dive": {
+  "/posts/why-headless-drupal-future-cms": {
     "data": {
       "route": {
         "__typename": "RouteInternal",
         "entity": {
           "__typename": "NodePost",
           "id": "post-1",
-          "title": "Database Indexing: A Deep Dive for Application Developers",
-          "path": "/posts/database-indexing-deep-dive",
+          "title": "Why Headless Drupal Is the Future of Content Management",
+          "path": "/posts/why-headless-drupal-future-cms",
           "body": {
-            "processed": "<p>Most developers know they should add indexes to their databases, but few understand how indexes actually work under the hood. This post takes you from B-tree basics to advanced multi-column index strategies that can make or break your application's performance.</p><h2>Why Indexes Matter</h2><p>A well-indexed database can be the difference between a query that takes 2 milliseconds and one that takes 20 seconds. At scale, this translates directly to user experience, server costs, and your ability to sleep at night without getting paged.</p><h2>How B-Tree Indexes Work</h2><p>The most common index type in relational databases is the B-tree (or B+ tree). Think of it like a phone book -- instead of scanning every row in a table, the database can quickly narrow down where your data lives by traversing a tree structure.</p><p>A B-tree keeps data sorted and allows searches, insertions, and deletions in O(log n) time. Each node in the tree contains multiple keys and pointers, making it efficient for both equality lookups and range queries.</p><h2>Composite Indexes</h2><p>Here's where it gets interesting. A composite index on (country, city, name) is not the same as three separate indexes. The composite index can efficiently serve queries that filter on:</p><ul><li>country</li><li>country AND city</li><li>country AND city AND name</li></ul><p>But it cannot efficiently serve queries that only filter on city or name without country. This is the \"leftmost prefix\" rule, and understanding it is crucial for index design.</p><h2>When NOT to Index</h2><p>Indexes aren't free. Every index adds write overhead and consumes storage. Avoid indexing columns with low cardinality (like boolean fields), tables with frequent bulk writes, or tiny tables where a full scan is already fast.</p><h2>Practical Tips</h2><ul><li>Use EXPLAIN ANALYZE to understand query plans</li><li>Monitor slow query logs to find indexing opportunities</li><li>Consider covering indexes for read-heavy queries</li><li>Regularly review and remove unused indexes</li></ul>",
-            "summary": "Most developers know they should add indexes to their databases, but few understand how indexes actually work under the hood. This post takes you from B-tree basics to advanced multi-column index stra"
+            "processed": "<p>The monolithic CMS is fading. Organizations that once relied on tightly coupled themes and server-rendered pages are discovering that a headless Drupal architecture unlocks speed, flexibility, and developer experience that traditional setups simply cannot match.</p><h2>What Is Headless Drupal?</h2><p>In a headless (or decoupled) architecture, Drupal serves purely as a content backend. It exposes structured content through APIs -- typically JSON:API or GraphQL -- while a separate frontend framework like Next.js, Nuxt, or Astro handles the presentation layer.</p><h2>Why Teams Are Making the Switch</h2><p>The benefits are substantial. Frontend teams can use modern JavaScript frameworks and tooling. Content editors keep the familiar Drupal admin interface. Deployments become independent -- you can ship a frontend fix without touching the CMS, and vice versa.</p><h2>Performance Gains</h2><p>Static site generation and incremental static regeneration in Next.js mean your pages load in milliseconds. Drupal handles content modeling and editorial workflows, while the frontend delivers optimized, CDN-cached pages to users worldwide.</p><h2>When to Go Headless</h2><p>Headless Drupal makes the most sense when you need multi-channel publishing, when frontend performance is critical, or when your development team wants to use modern JavaScript tooling.</p><h2>Getting Started</h2><p>The easiest path is to start with Drupal's built-in JSON:API module, pair it with a Next.js frontend, and use a starter kit like those from Decoupled.io.</p>",
+            "summary": "The monolithic CMS is fading. Discover why headless Drupal is becoming the architecture of choice for teams that want speed, flexibility, and modern developer experience."
           },
           "postImage": {
-            "url": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80",
-            "alt": "Database schema diagram on a whiteboard",
+            "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+            "alt": "Modern web dashboard showing content management interface",
             "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
+            "height": 533
           },
           "excerpt": {
-            "processed": "<p>Most developers know they should add indexes, but few understand how they work under the hood. From B-tree basics to composite index strategies.</p>",
-            "summary": "Most developers know they should add indexes, but few understand how they work under the hood. From B-tree basics to composite index strategies."
+            "processed": "<p>The monolithic CMS is fading. Discover why headless Drupal is becoming the architecture of choice for teams that want speed, flexibility, and modern developer experience.</p>",
+            "summary": "The monolithic CMS is fading. Discover why headless Drupal is becoming the architecture of choice."
           },
-          "authorName": "Jordan Hayes",
-          "authorPhoto": {
-            "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-            "alt": "Jordan Hayes",
-            "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
-          },
-          "readTime": "12 min read",
+          "authorName": "Alex Rivera",
+          "readTime": "10 min read",
           "subscriptionTier": "free",
           "featured": true,
           "tags": [
-            {
-              "id": "technology",
-              "name": "technology"
-            },
-            {
-              "id": "tutorial",
-              "name": "tutorial"
-            }
+            { "id": "headless-cms", "name": "headless-cms" },
+            { "id": "drupal", "name": "drupal" }
           ]
         }
       }
     }
   },
-  "/posts/system-design-rate-limiter": {
+  "/posts/decoupled-drupal-nextjs-guide": {
     "data": {
       "route": {
         "__typename": "RouteInternal",
         "entity": {
           "__typename": "NodePost",
           "id": "post-2",
-          "title": "System Design: Building a Distributed Rate Limiter",
-          "path": "/posts/system-design-rate-limiter",
+          "title": "Building a Decoupled CMS with Drupal and Next.js: A Step-by-Step Guide",
+          "path": "/posts/decoupled-drupal-nextjs-guide",
           "body": {
-            "processed": "<p>Rate limiting is one of those things that sounds simple but gets surprisingly complex in distributed systems. In this premium deep-dive, we'll design a rate limiter that can handle millions of requests per second across multiple data centers.</p><h2>Why Rate Limiting?</h2><p>Rate limiting protects your API from abuse, prevents cascading failures, and ensures fair resource allocation among tenants. Without it, a single misbehaving client can bring down your entire system.</p><h2>Algorithms</h2><h3>Token Bucket</h3><p>The token bucket algorithm is the most widely used approach. A bucket fills with tokens at a fixed rate. Each request consumes a token. If the bucket is empty, the request is rejected. This allows short bursts of traffic while maintaining an average rate limit.</p><h3>Sliding Window Log</h3><p>This approach stores timestamps for each request and counts the number within the current window. It's more precise than fixed windows but requires more memory.</p><h3>Sliding Window Counter</h3><p>A hybrid approach that combines the efficiency of fixed windows with the accuracy of sliding windows by weighting counts from the current and previous windows.</p><h2>Going Distributed</h2><p>The real challenge is making rate limiting work across multiple servers. Options include:</p><ul><li><strong>Redis-based:</strong> Centralized counter using Redis MULTI/EXEC for atomicity</li><li><strong>Local + sync:</strong> Each node tracks locally and periodically syncs</li><li><strong>Sticky sessions:</strong> Route users to consistent servers (simple but inflexible)</li></ul><h2>Implementation with Redis</h2><p>We'll use Redis with Lua scripts for atomic operations. The Lua script checks the current count, increments it, and sets the TTL in a single atomic operation, eliminating race conditions.</p><h2>Monitoring and Alerting</h2><p>Your rate limiter should expose metrics on rejection rates, current utilization per client, and latency added by the rate limiting middleware. Dashboard these to catch anomalies early.</p>",
-            "summary": "Rate limiting is one of those things that sounds simple but gets surprisingly complex in distributed systems. In this premium deep-dive, we'll design a rate limiter that can handle millions of request"
+            "processed": "<p>Pairing Drupal's powerful content modeling with Next.js's rendering capabilities creates one of the most capable web stacks available today.</p>",
+            "summary": "A complete walkthrough for building a production-ready decoupled CMS with Drupal and Next.js."
           },
           "postImage": {
-            "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-            "alt": "Server rack with blinking lights",
+            "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+            "alt": "Code editor showing a Next.js application",
             "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
+            "height": 533
           },
           "excerpt": {
-            "processed": "<p>Rate limiting sounds simple but gets complex in distributed systems. Let's design one that handles millions of requests per second across data centers.</p>",
-            "summary": "Rate limiting sounds simple but gets complex in distributed systems. Let's design one that handles millions of requests per second across data centers."
+            "processed": "<p>A complete walkthrough for building a production-ready decoupled CMS with Drupal as the backend and Next.js as the frontend.</p>",
+            "summary": "A complete walkthrough for building a production-ready decoupled CMS with Drupal and Next.js."
           },
-          "authorName": "Jordan Hayes",
-          "authorPhoto": {
-            "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-            "alt": "Jordan Hayes",
-            "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
-          },
+          "authorName": "Alex Rivera",
           "readTime": "18 min read",
           "subscriptionTier": "premium",
           "featured": true,
           "tags": [
-            {
-              "id": "technology",
-              "name": "technology"
-            },
-            {
-              "id": "tutorial",
-              "name": "tutorial"
-            }
+            { "id": "tutorial", "name": "tutorial" },
+            { "id": "nextjs", "name": "nextjs" },
+            { "id": "drupal", "name": "drupal" }
           ]
         }
       }
     }
   },
-  "/posts/senior-engineer-communication": {
+  "/posts/graphql-vs-jsonapi-drupal": {
     "data": {
       "route": {
         "__typename": "RouteInternal",
         "entity": {
           "__typename": "NodePost",
           "id": "post-3",
-          "title": "The Skill That Separates Senior Engineers: Communication",
-          "path": "/posts/senior-engineer-communication",
+          "title": "GraphQL vs JSON:API for Headless Drupal: Choosing the Right API Layer",
+          "path": "/posts/graphql-vs-jsonapi-drupal",
           "body": {
-            "processed": "<p>After a decade in the industry, I'm convinced that what separates truly senior engineers from mid-level ones isn't technical skill -- it's communication. The best senior engineers I've worked with are exceptional writers, clear thinkers, and skilled translators between technical and business domains.</p><h2>Why Communication Matters More Than Code</h2><p>A brilliant solution that nobody understands is worse than a good solution that the whole team can maintain. Senior engineers spend more time writing design docs, reviewing PRs with thoughtful feedback, and explaining trade-offs to stakeholders than they do writing code.</p><h2>Writing Design Documents</h2><p>A great design doc answers these questions:</p><ul><li><strong>What problem are we solving?</strong> State it clearly for non-technical stakeholders</li><li><strong>What options did we consider?</strong> Show you've thought broadly</li><li><strong>Why this approach?</strong> Articulate trade-offs explicitly</li><li><strong>What are the risks?</strong> Be honest about what could go wrong</li><li><strong>How will we know it works?</strong> Define success metrics upfront</li></ul><h2>Code Review as Communication</h2><p>Your PR reviews are a communication tool, not a quality gate. The best reviewers explain the \"why\" behind their suggestions, offer alternatives rather than just criticism, and distinguish between blocking issues and stylistic preferences.</p><h2>Translating for Stakeholders</h2><p>When your product manager asks \"how hard would it be to add real-time notifications?\" they don't want a lecture on WebSockets vs. Server-Sent Events. They want to understand the scope, timeline, and trade-offs in terms that map to business outcomes.</p><h2>How to Improve</h2><ul><li>Write more -- blog posts, design docs, even internal wikis</li><li>Ask for feedback on your writing from non-technical people</li><li>Practice explaining technical concepts without jargon</li><li>Read your PR reviews a day later and ask: \"Would I understand this if I didn't have context?\"</li></ul>",
-            "summary": "After a decade in the industry, I'm convinced that what separates truly senior engineers from mid-level ones isn't technical skill -- it's communication. The best senior engineers I've worked with are"
+            "processed": "<p>When decoupling Drupal, one of the first decisions you will face is which API format to use.</p>",
+            "summary": "Drupal supports both JSON:API and GraphQL. Here is a practical comparison."
           },
           "postImage": {
-            "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-            "alt": "Team collaborating around a whiteboard",
+            "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+            "alt": "Abstract network connections",
             "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
+            "height": 533
           },
           "excerpt": {
-            "processed": "<p>What separates senior engineers from mid-level ones isn't technical skill -- it's communication. The best senior engineers are exceptional writers and clear thinkers.</p>",
-            "summary": "What separates senior engineers from mid-level ones isn't technical skill -- it's communication. The best senior engineers are exceptional writers and clear thinkers."
+            "processed": "<p>Drupal supports both JSON:API and GraphQL for headless architectures. Here is a practical comparison to help you choose.</p>",
+            "summary": "Drupal supports both JSON:API and GraphQL. A practical comparison."
           },
-          "authorName": "Jordan Hayes",
-          "authorPhoto": {
-            "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-            "alt": "Jordan Hayes",
-            "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
-          },
-          "readTime": "10 min read",
+          "authorName": "Samira Patel",
+          "readTime": "12 min read",
           "subscriptionTier": "free",
           "featured": false,
           "tags": [
-            {
-              "id": "career",
-              "name": "career"
-            },
-            {
-              "id": "opinion",
-              "name": "opinion"
-            }
+            { "id": "graphql", "name": "graphql" },
+            { "id": "drupal", "name": "drupal" }
           ]
         }
       }
     }
   },
-  "/posts/typescript-patterns-production": {
+  "/posts/content-modeling-decoupled-drupal": {
     "data": {
       "route": {
         "__typename": "RouteInternal",
         "entity": {
           "__typename": "NodePost",
           "id": "post-4",
-          "title": "5 TypeScript Patterns I Use in Every Production Codebase",
-          "path": "/posts/typescript-patterns-production",
+          "title": "Content Modeling Best Practices for Decoupled Drupal",
+          "path": "/posts/content-modeling-decoupled-drupal",
           "body": {
-            "processed": "<p>After shipping TypeScript to production for six years, I've developed a set of patterns that I reach for in every project. These aren't clever type tricks -- they're practical patterns that make codebases more maintainable and bugs less likely.</p><h2>1. Branded Types</h2><p>A UserId and an OrderId are both strings, but they shouldn't be interchangeable. Branded types (also called nominal types) prevent accidental mixing of structurally identical but semantically different values.</p><h2>2. Exhaustive Switch Statements</h2><p>TypeScript's never type lets you write switch statements that fail at compile time when you add a new variant to a union type. This catches missing cases before they become runtime bugs.</p><h2>3. Result Types Over Exceptions</h2><p>Instead of throwing exceptions, return a Result type that forces callers to handle both success and error cases. This makes error handling explicit and composable, and eliminates the \"is this function safe to call?\" guessing game.</p><h2>4. Builder Pattern for Complex Objects</h2><p>When constructing objects with many optional fields, the builder pattern provides a fluent API with compile-time enforcement of required fields. It's especially useful for test data factories.</p><h2>5. Discriminated Unions for State</h2><p>Model state machines with discriminated unions instead of multiple boolean flags. An object with isLoading, isError, and hasData booleans has 8 possible states, most of which are invalid. A union of Loading | Error | Success has exactly 3, all valid.</p><h2>Why These Patterns?</h2><p>The common thread is making invalid states unrepresentable. If the type system prevents a bug, you don't need a test for it, you don't need a runtime check, and you definitely don't need an incident retrospective.</p>",
-            "summary": "After shipping TypeScript to production for six years, I've developed a set of patterns that I reach for in every project. These aren't clever type tricks -- they're practical patterns that make codeb"
+            "processed": "<p>Content modeling is the foundation of any CMS project, but it becomes even more critical in a decoupled architecture.</p>",
+            "summary": "Content modeling becomes critical in decoupled architectures."
           },
           "postImage": {
-            "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-            "alt": "TypeScript code on a dark code editor",
+            "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+            "alt": "Team collaborating on content architecture",
             "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
+            "height": 533
           },
           "excerpt": {
-            "processed": "<p>Five practical TypeScript patterns for production codebases: branded types, exhaustive switches, Result types, builders, and discriminated unions.</p>",
-            "summary": "Five practical TypeScript patterns for production codebases: branded types, exhaustive switches, Result types, builders, and discriminated unions."
+            "processed": "<p>Content modeling becomes critical in decoupled architectures. Learn best practices for structuring Drupal content types.</p>",
+            "summary": "Content modeling becomes critical in decoupled architectures."
           },
-          "authorName": "Jordan Hayes",
-          "authorPhoto": {
-            "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-            "alt": "Jordan Hayes",
-            "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
-          },
+          "authorName": "Samira Patel",
           "readTime": "14 min read",
           "subscriptionTier": "premium",
           "featured": false,
           "tags": [
-            {
-              "id": "technology",
-              "name": "technology"
-            },
-            {
-              "id": "tutorial",
-              "name": "tutorial"
-            }
+            { "id": "content-modeling", "name": "content-modeling" },
+            { "id": "drupal", "name": "drupal" }
           ]
         }
       }
     }
   },
-  "/posts/remote-work-deep-focus": {
+  "/posts/migrating-monolithic-to-headless": {
     "data": {
       "route": {
         "__typename": "RouteInternal",
         "entity": {
           "__typename": "NodePost",
           "id": "post-5",
-          "title": "Remote Work and the Art of Deep Focus",
-          "path": "/posts/remote-work-deep-focus",
+          "title": "Migrating from Monolithic Drupal to a Headless Architecture",
+          "path": "/posts/migrating-monolithic-to-headless",
           "body": {
-            "processed": "<p>Working remotely should be a developer's dream -- no commute, no office interruptions, full control over your environment. Yet many remote developers report lower productivity and more distractions than they had in the office. Here's how I solved that.</p><h2>The Distraction Trap</h2><p>The biggest threat to remote productivity isn't Netflix or household chores -- it's Slack. The constant ping of messages, the pressure to respond immediately, and the anxiety of missing something creates a state of continuous partial attention that makes deep work impossible.</p><h2>My System</h2><p>I structure my day into three modes:</p><ul><li><strong>Deep Work (9am-12pm):</strong> Slack closed, notifications off, phone in another room. This is when I write code, review designs, or draft documents.</li><li><strong>Collaborative Work (1pm-3pm):</strong> Meetings, PR reviews, Slack catch-up. I batch all communication into this window.</li><li><strong>Administrative Work (3pm-5pm):</strong> Email, planning, light tasks. This is low-energy time and I use it accordingly.</li></ul><h2>Environment Design</h2><p>I invested in a dedicated home office with a door that closes. My desk faces a wall (no windows -- sorry, Instagram). I use noise-cancelling headphones with brown noise, not music, which I find less distracting.</p><h2>The Results</h2><p>Since implementing this system two years ago, my code output has roughly doubled and my stress levels have dropped significantly. The key insight is that productivity isn't about working more hours -- it's about protecting your best hours from fragmentation.</p>",
-            "summary": "Working remotely should be a developer's dream -- no commute, no office interruptions, full control over your environment. Yet many remote developers report lower productivity and more distractions th"
+            "processed": "<p>You have a production Drupal site with years of content. Now leadership wants a modern frontend. Here is the incremental strategy.</p>",
+            "summary": "A practical strategy for migrating from monolithic Drupal to headless."
           },
           "postImage": {
-            "url": "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=800&q=80",
-            "alt": "Clean minimalist home office setup",
+            "url": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80",
+            "alt": "Architecture diagram",
             "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
+            "height": 533
           },
           "excerpt": {
-            "processed": "<p>Remote work should be a developer's dream, yet many report lower productivity. Here's the system I use to protect deep focus and double my output.</p>",
-            "summary": "Remote work should be a developer's dream, yet many report lower productivity. Here's the system I use to protect deep focus and double my output."
+            "processed": "<p>A practical, incremental strategy for migrating from a monolithic Drupal site to a headless architecture.</p>",
+            "summary": "A practical strategy for migrating from monolithic to headless Drupal."
           },
-          "authorName": "Jordan Hayes",
-          "authorPhoto": {
-            "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-            "alt": "Jordan Hayes",
-            "width": 800,
-            "height": 533,
-            "variations": [
-              {
-                "name": "LARGE",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-                "width": 800,
-                "height": 533
-              },
-              {
-                "name": "MEDIUM",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=480&q=80",
-                "width": 480,
-                "height": 320
-              },
-              {
-                "name": "THUMBNAIL",
-                "url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80",
-                "width": 200,
-                "height": 133
-              }
-            ]
-          },
-          "readTime": "8 min read",
+          "authorName": "Alex Rivera",
+          "readTime": "15 min read",
           "subscriptionTier": "free",
           "featured": false,
           "tags": [
-            {
-              "id": "productivity",
-              "name": "productivity"
-            },
-            {
-              "id": "remote-work",
-              "name": "remote-work"
-            },
-            {
-              "id": "opinion",
-              "name": "opinion"
-            }
+            { "id": "migration", "name": "migration" },
+            { "id": "drupal", "name": "drupal" }
           ]
         }
       }
@@ -528,11 +265,11 @@
         "entity": {
           "__typename": "NodePage",
           "id": "page-about",
-          "title": "About The Pragmatic Dev",
+          "title": "About Decoupled Drupal Blog",
           "path": "/posts",
           "body": {
-            "processed": "<p>The Pragmatic Dev is a technical blog by Jordan Hayes, a software engineer with 10 years of experience building distributed systems, web applications, and developer tools.</p><h2>The Philosophy</h2><p>There's no shortage of content about programming on the internet. What's in short supply is practical, honest writing that respects your time. Every post on this blog is written to be useful the day you read it, not just interesting in the abstract.</p><h2>About Jordan</h2><p>I've worked at startups, mid-size companies, and one FAANG. I've been a junior developer, a tech lead, a staff engineer, and briefly a manager (I went back to engineering). I write about what I've learned, including the mistakes.</p><h2>Subscription Tiers</h2><ul><li><strong>Free:</strong> Access to all free posts and the weekly newsletter</li><li><strong>Premium ($9/month):</strong> Everything in free, plus premium deep-dives, system design case studies, code samples, and early access to new content</li><li><strong>Team ($25/month):</strong> Premium access for up to 5 team members, plus a monthly Q&A session</li></ul><h2>Contact</h2><p>Questions, feedback, or topic suggestions? Email jordan@thepragmaticdev.com or find me on Twitter @pragmaticdev.</p>",
-            "summary": "The Pragmatic Dev is a technical blog by Jordan Hayes, a software engineer with 10 years of experience building distributed systems, web applications, and developer tools.The PhilosophyThere's no shor"
+            "processed": "<p>Decoupled Drupal Blog is a resource for developers and architects building headless CMS solutions with Drupal. We publish practical tutorials, architecture guides, and real-world case studies.</p><h2>The Mission</h2><p>The web is moving toward API-first architectures, and Drupal is uniquely positioned at the center of this shift. Our goal is to help teams navigate the transition from monolithic to decoupled with clear, battle-tested guidance.</p><h2>The Team</h2><p>Our contributors are practicing developers and architects who build decoupled Drupal systems for clients and organizations. We write about what we've learned in production, including the mistakes.</p><h2>Subscription Tiers</h2><ul><li><strong>Free:</strong> Access to all free posts and the weekly newsletter</li><li><strong>Premium ($9/month):</strong> Everything in free, plus premium deep-dives, starter code, and implementation templates</li></ul><h2>Contact</h2><p>Questions, feedback, or topic suggestions? Reach out via the contact form or find us on Twitter.</p>",
+            "summary": "Decoupled Drupal Blog is a resource for developers and architects building headless CMS solutions with Drupal."
           }
         }
       }
@@ -548,8 +285,8 @@
           "title": "Privacy Policy",
           "path": "/privacy",
           "body": {
-            "processed": "<p>The Pragmatic Dev respects your privacy. This policy explains what data we collect, how we use it, and your rights.</p><h2>What We Collect</h2><ul><li>Email address (when you subscribe)</li><li>Payment information (processed securely by Stripe -- we never see your card number)</li><li>Basic analytics (page views, read time) via a privacy-respecting analytics tool</li></ul><h2>What We Don't Do</h2><ul><li>We never sell your data to third parties</li><li>We never share your email with other companies</li><li>We don't use advertising trackers</li><li>We don't use cookies for tracking (only essential cookies for authentication)</li></ul><h2>Your Rights</h2><p>You can unsubscribe at any time by clicking the unsubscribe link in any email. You can request deletion of all your data by emailing privacy@thepragmaticdev.com. We will process your request within 30 days.</p><h2>Questions?</h2><p>Contact us at privacy@thepragmaticdev.com with any privacy-related questions or concerns.</p>",
-            "summary": "The Pragmatic Dev respects your privacy. This policy explains what data we collect, how we use it, and your rights.What We CollectEmail address (when you subscribe)Payment information (processed secur"
+            "processed": "<p>Decoupled Drupal Blog respects your privacy. This policy explains what data we collect, how we use it, and your rights.</p><h2>What We Collect</h2><ul><li>Email address (when you subscribe)</li><li>Payment information (processed securely by Stripe)</li><li>Basic analytics (page views, read time) via a privacy-respecting analytics tool</li></ul><h2>What We Don't Do</h2><ul><li>We never sell your data to third parties</li><li>We never share your email with other companies</li><li>We don't use advertising trackers</li></ul><h2>Your Rights</h2><p>You can unsubscribe at any time. You can request deletion of all your data by emailing us. We will process your request within 30 days.</p>",
+            "summary": "Decoupled Drupal Blog respects your privacy."
           }
         }
       }

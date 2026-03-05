@@ -6,15 +6,15 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ homepageContent }: HeroSectionProps) {
-  const title = (homepageContent as any)?.heroTitle || (homepageContent as any)?.title || 'Clear Thinking. Clean Execution.'
+  const title = (homepageContent as any)?.heroTitle || (homepageContent as any)?.title || 'Decoupled Drupal'
   const subtitle = (homepageContent as any)?.heroSubtitle || ''
 
   return (
     <section className="relative overflow-hidden py-32 md:py-48">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=2000&q=80&fit=crop"
-          alt="Notebook and coffee"
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=2000&q=80&fit=crop"
+          alt="Modern web development dashboard"
           className="h-full w-full object-cover opacity-25"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-950/90 via-primary-900/80 to-primary-800/65" />

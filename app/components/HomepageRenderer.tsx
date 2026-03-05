@@ -21,7 +21,7 @@ export default function HomepageRenderer({ homepageContent }: HomepageRendererPr
 
       <footer className="bg-white border-t border-primary-200 py-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-4 text-sm text-primary-500">
-          <p>&copy; {new Date().getFullYear()} Studio Desk. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Decoupled Drupal Blog. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/posts" className="hover:text-primary-900 transition-colors">About</Link>
             <Link href="/posts" className="hover:text-primary-900 transition-colors">Services</Link>

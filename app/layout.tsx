@@ -26,10 +26,10 @@ function getSiteUrl(): string {
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: 'Blog',
-    template: `%s | Blog`
+    default: 'Decoupled Drupal Blog',
+    template: `%s | Decoupled Drupal Blog`
   },
-  description: 'Deep dives into software engineering, system design, and the developer lifestyle. No fluff, no hype -- just actionable content from years in the trenches. Free ',
+  description: 'Practical guides for headless Drupal and decoupled CMS architecture. Tutorials on API design, content modeling, Next.js integration, and production deployment strategies.',
   formatDetection: {
     email: false,
     address: false,
