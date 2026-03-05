@@ -9,6 +9,7 @@ interface PostCardProps {
 }
 
 export function PostCard({ post, featured = false }: PostCardProps) {
+  const postHref = post.slug ? `/posts/${post.slug}` : '/posts'
   const date = new Date(post.publishedAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -17,7 +18,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
 
   if (featured) {
     return (
-      <Link href={`/posts/${post.slug}`} className="group block">
+      <Link href={postHref} className="group block">
         <div className="grid md:grid-cols-2 gap-6 bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600 transition-colors">
           {post.image && (
             <div className="relative aspect-video md:aspect-auto">
@@ -61,7 +62,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
   }
 
   return (
-    <Link href={`/posts/${post.slug}`} className="group block">
+    <Link href={postHref} className="group block">
       <div className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600 transition-colors h-full">
         {post.image && (
           <div className="relative aspect-video">

@@ -217,7 +217,7 @@
     {
       "id": "page-about",
       "type": "node.page",
-      "path": "/about",
+      "path": "/posts",
       "values": {
         "title": "About The Pragmatic Dev",
         "body": "<p>The Pragmatic Dev is a technical blog by Jordan Hayes, a software engineer with 10 years of experience building distributed systems, web applications, and developer tools.</p><h2>The Philosophy</h2><p>There's no shortage of content about programming on the internet. What's in short supply is practical, honest writing that respects your time. Every post on this blog is written to be useful the day you read it, not just interesting in the abstract.</p><h2>About Jordan</h2><p>I've worked at startups, mid-size companies, and one FAANG. I've been a junior developer, a tech lead, a staff engineer, and briefly a manager (I went back to engineering). I write about what I've learned, including the mistakes.</p><h2>Subscription Tiers</h2><ul><li><strong>Free:</strong> Access to all free posts and the weekly newsletter</li><li><strong>Premium ($9/month):</strong> Everything in free, plus premium deep-dives, system design case studies, code samples, and early access to new content</li><li><strong>Team ($25/month):</strong> Premium access for up to 5 team members, plus a monthly Q&A session</li></ul><h2>Contact</h2><p>Questions, feedback, or topic suggestions? Email jordan@thepragmaticdev.com or find me on Twitter @pragmaticdev.</p>"

@@ -7,9 +7,9 @@ import clsx from 'clsx'
 import { Menu, X } from 'lucide-react'
 
 const navigationItems = [
-  { name: 'Work', href: '/projects' },
-  { name: 'Services', href: '/services' },
-  { name: 'About', href: '/about' },
+  { name: 'Work', href: '/posts' },
+  { name: 'Services', href: '/posts' },
+  { name: 'About', href: '/posts' },
 ]
 
 export default function Header() {
