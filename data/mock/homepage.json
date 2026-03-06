@@ -45,28 +45,28 @@
               "__typename": "ParagraphStatItem",
               "id": "stat-posts",
               "title": "",
-              "number": "80+",
+              "number": "80+", "value": "80+",
               "label": "Tutorials Published"
             },
             {
               "__typename": "ParagraphStatItem",
               "id": "stat-subscribers",
               "title": "",
-              "number": "3,200",
+              "number": "3,200", "value": "3,200",
               "label": "Subscribers"
             },
             {
               "__typename": "ParagraphStatItem",
               "id": "stat-reads",
               "title": "",
-              "number": "500K+",
+              "number": "500K+", "value": "500K+",
               "label": "Total Reads"
             },
             {
               "__typename": "ParagraphStatItem",
               "id": "stat-years",
               "title": "",
-              "number": "3",
+              "number": "3", "value": "3",
               "label": "Years Running"
             }
           ],
