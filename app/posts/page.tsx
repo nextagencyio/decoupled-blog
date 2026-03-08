@@ -9,6 +9,7 @@ import { isDemoMode, getMockPosts } from '@/lib/demo-mode'
 import { BookOpen } from 'lucide-react'
 
 export const revalidate = 3600
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'All Posts | Decoupled Drupal Blog',

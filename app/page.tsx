@@ -10,6 +10,8 @@ import { ArrowRight, Zap, Layers, Code2 } from 'lucide-react'
 import Link from 'next/link'
 import { isDemoMode, getMockPosts } from '@/lib/demo-mode'
 
+export const dynamic = 'force-dynamic'
+
 function getMissingEnvVars(): { drupal: string[]; stripe: string[] } {
   const drupal: string[] = []
   const stripe: string[] = []
