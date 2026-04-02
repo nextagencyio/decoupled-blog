@@ -15,7 +15,7 @@ function getMissingEnvVars(): { drupal: string[]; stripe: string[] } {
   const drupal: string[] = []
   const stripe: string[] = []
 
-  if (!process.env.DRUPAL_BASE_URL) drupal.push('DRUPAL_BASE_URL')
+  if (!process.env.NEXT_PUBLIC_DRUPAL_BASE_URL) drupal.push('NEXT_PUBLIC_DRUPAL_BASE_URL')
   if (!process.env.DRUPAL_CLIENT_ID) drupal.push('DRUPAL_CLIENT_ID')
   if (!process.env.DRUPAL_CLIENT_SECRET) drupal.push('DRUPAL_CLIENT_SECRET')
   if (!process.env.STRIPE_SECRET_KEY) stripe.push('STRIPE_SECRET_KEY')
@@ -38,18 +38,12 @@ export default async function HomePage() {
       return <SetupGuide missingEnvVars={[...missing.drupal, ...missing.stripe]} />
     }
 
-    if (missing.stripe.length > 0) {
-      return <AlmostThere missingStripeVars={missing.stripe} />
-    }
-
     const client = getClient()
 
     try {
-      const { data } = await client.query({
-        query: GET_ALL_POSTS,
-      })
+      const data = await client.raw(GET_ALL_POSTS)
 
-      posts = (data?.nodeArticles?.nodes || [])
+      posts = (data?.nodePosts?.nodes || [])
         .map(transformPost)
         .filter(Boolean)
     } catch (e: any) {

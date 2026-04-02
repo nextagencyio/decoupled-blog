@@ -5,7 +5,7 @@ import ErrorBoundary from '../components/ErrorBoundary'
 import HomepageRenderer from '../components/HomepageRenderer'
 import ResponsiveImage from '../components/ResponsiveImage'
 import { Metadata } from 'next'
-import { GET_POST_BY_SLUG } from '@/lib/queries'
+import { GET_GENERIC_PAGE } from '@/lib/queries'
 
 export const revalidate = 300
 export const dynamic = 'force-dynamic'
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const path = `/${(resolvedParams.slug || []).join('/')}`
   try {
     const client = getClient()
-    const { data } = await apollo.query({ query: GET_POST_BY_SLUG, variables: { path } })
+    const data = await client.raw(GET_GENERIC_PAGE, { path })
     const title = data?.route?.entity?.title || 'Page'
     return { title }
   } catch {
@@ -41,7 +41,9 @@ export default async function GenericPage({ params }: { params: Promise<{ slug: 
   const client = getClient()
 
   try {
-    const { data } = await apollo.query({ query: GET_POST_BY_SLUG, variables: { path }, fetchPolicy: 'no-cache' })
+    const data = await client.raw(GET_GENERIC_PAGE, { path })
+    const entity = data?.route?.entity
+
     if (!entity) {
       return (
         <div className="min-h-screen bg-slate-950">

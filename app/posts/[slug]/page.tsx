@@ -28,10 +28,7 @@ export default async function PostPage({ params }: PostPageProps) {
     const client = getClient()
 
     try {
-      const { data } = await client.query({
-        query: GET_POST_BY_SLUG,
-        variables: { path: `/posts/${slug}` },
-      })
+      const data = await client.raw(GET_POST_BY_SLUG, { path: `/posts/${slug}` })
 
       post = transformPost(data?.route?.entity)
     } catch (e) {

@@ -3,7 +3,7 @@ const gql = (strings: TemplateStringsArray, ...values: any[]) => strings.reduce(
 
 export const GET_ALL_POSTS = gql`
   query GetAllPosts {
-    nodeArticles(first: 50) {
+    nodePosts(first: 50) {
       nodes {
         id
         title
@@ -15,18 +15,28 @@ export const GET_ALL_POSTS = gql`
           processed
           summary
         }
+        excerpt {
+          processed
+        }
         readTime
         featured
-        image {
+        subscriptionTier
+        postImage {
           url
           alt
           width
           height
         }
         authorName
-        authorAvatar {
+        authorPhoto {
           url
           alt
+        }
+        tags {
+          ... on TermTag {
+            id
+            name
+          }
         }
       }
     }
@@ -38,7 +48,7 @@ export const GET_POST_BY_SLUG = gql`
     route(path: $path) {
       ... on RouteInternal {
         entity {
-          ... on NodeArticle {
+          ... on NodePost {
             id
             title
             path
@@ -49,18 +59,28 @@ export const GET_POST_BY_SLUG = gql`
               processed
               summary
             }
+            excerpt {
+              processed
+            }
             readTime
             featured
-            image {
+            subscriptionTier
+            postImage {
               url
               alt
               width
               height
             }
             authorName
-            authorAvatar {
+            authorPhoto {
               url
               alt
+            }
+            tags {
+              ... on TermTag {
+                id
+                name
+              }
             }
           }
         }
@@ -71,7 +91,7 @@ export const GET_POST_BY_SLUG = gql`
 
 export const GET_FEATURED_POSTS = gql`
   query GetFeaturedPosts {
-    nodeArticles(first: 3) {
+    nodePosts(first: 3) {
       nodes {
         id
         title
@@ -84,16 +104,67 @@ export const GET_FEATURED_POSTS = gql`
         }
         readTime
         featured
-        image {
+        postImage {
           url
           alt
           width
           height
         }
         authorName
-        authorAvatar {
+        authorPhoto {
           url
           alt
+        }
+      }
+    }
+  }
+`
+
+export const GET_GENERIC_PAGE = gql`
+  query GetGenericPage($path: String!) {
+    route(path: $path) {
+      ... on RouteInternal {
+        entity {
+          ... on NodePage {
+            __typename
+            id
+            title
+            path
+            body {
+              processed
+            }
+          }
+          ... on NodeHomepage {
+            __typename
+            id
+            title
+            path
+            heroTitle
+            heroSubtitle
+            heroDescription {
+              processed
+            }
+            heroImage {
+              url
+              alt
+              width
+              height
+            }
+            statsItems {
+              ... on ParagraphStatItem {
+                id
+                number
+                label
+              }
+            }
+            featuredItemsTitle
+            ctaTitle
+            ctaDescription {
+              processed
+            }
+            ctaPrimary
+            ctaSecondary
+          }
         }
       }
     }
@@ -106,8 +177,8 @@ export function transformPost(node: any): import('./types').Post | null {
 
   const slug = node.path?.replace(/^\/posts\//, '') || node.id
 
-  // Handle the excerpt - use summary if available, otherwise take first paragraph of body
-  let excerpt = node.body?.summary || ''
+  // Handle the excerpt - use excerpt field, summary, or first paragraph of body
+  let excerpt = node.excerpt?.processed || node.body?.summary || ''
   if (!excerpt && node.body?.processed) {
     // Extract first paragraph as excerpt
     const match = node.body.processed.match(/<p>[\s\S]*?<\/p>/)
@@ -135,10 +206,10 @@ export function transformPost(node: any): import('./types').Post | null {
     } : undefined,
     author: {
       name: node.authorName || 'Decoupled Drupal Team',
-      photo: node.authorPhoto?.url || node.authorAvatar?.url,
-      avatar: node.authorAvatar ? {
-        url: node.authorAvatar.url,
-        alt: node.authorAvatar.alt || node.authorName,
+      photo: node.authorPhoto?.url,
+      avatar: node.authorPhoto ? {
+        url: node.authorPhoto.url,
+        alt: node.authorPhoto.alt || node.authorName,
       } : undefined,
     },
   }
