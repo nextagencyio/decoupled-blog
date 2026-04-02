@@ -1,8 +1,7 @@
-import { headers } from 'next/headers'
+import { getClient } from '@/lib/drupal-client'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
-import { getServerApolloClient } from '@/lib/apollo-client'
 import { GET_POST_BY_SLUG, transformPost } from '@/lib/queries'
 import { hasActiveSubscription } from '@/lib/subscription'
 import { Paywall } from '@/app/components/Paywall'
@@ -26,8 +25,7 @@ export default async function PostPage({ params }: PostPageProps) {
     const rawPost = getMockPostBySlug(slug)
     post = rawPost ? transformPost(rawPost) : null
   } else {
-    const requestHeaders = await headers()
-    const client = getServerApolloClient(requestHeaders)
+    const client = getClient()
 
     try {
       const { data } = await client.query({
