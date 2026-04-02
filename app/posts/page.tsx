@@ -22,7 +22,7 @@ async function getPosts() {
 
   try {
     const client = getClient()
-    const { data } = await client.raw(GET_ALL_POSTS, { first: 50 })
+    const data = await client.raw(GET_ALL_POSTS, { first: 50 })
     return (data?.nodeArticles?.nodes || []).map(transformPost).filter(Boolean)
   } catch (error) {
     console.error('Error fetching posts:', error)
